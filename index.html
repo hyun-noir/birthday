@@ -1,0 +1,3030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Saniya</title>
+
+<!-- Elegant fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    background:#050308;
+    color:white;
+    overflow-x:hidden;
+    font-family:"Cormorant Garamond",serif;
+}
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+.hero{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    min-height:100svh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(126,77,190,0.13),
+            transparent 38%
+        ),
+        #050308;
+}
+
+/* Soft moving purple atmosphere */
+
+.hero::before{
+    content:"";
+    position:absolute;
+
+    width:70vw;
+    height:70vw;
+
+    max-width:520px;
+    max-height:520px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:rgba(113,63,176,0.10);
+
+    filter:blur(90px);
+    border-radius:50%;
+
+    animation:ambientGlow 7s ease-in-out infinite;
+}
+
+@keyframes ambientGlow{
+
+    0%,100%{
+        opacity:.55;
+        transform:translate(-50%,-50%) scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1.12);
+    }
+}
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particles{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.particle{
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:rgba(207,170,255,.75);
+
+    box-shadow:
+        0 0 6px rgba(164,105,230,.7),
+        0 0 14px rgba(126,72,190,.35);
+
+    animation:
+        floatParticle var(--duration) ease-in-out infinite,
+        twinkle var(--twinkle) ease-in-out infinite alternate;
+}
+
+@keyframes floatParticle{
+
+    0%{
+        transform:
+            translate3d(0,0,0)
+            scale(.7);
+    }
+
+    50%{
+        transform:
+            translate3d(var(--moveX),-45px,0)
+            scale(1);
+    }
+
+    100%{
+        transform:
+            translate3d(
+                calc(var(--moveX) * -0.5),
+                -90px,
+                0
+            )
+            scale(.65);
+    }
+}
+
+@keyframes twinkle{
+
+    0%{
+        opacity:.2;
+    }
+
+    100%{
+        opacity:.9;
+    }
+}
+
+
+/* =========================
+   CENTER CONTENT
+========================= */
+
+.heroContent{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    padding:30px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+
+/* Small opening line */
+
+.preTitle{
+    margin-bottom:18px;
+
+    font-size:13px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+
+    color:rgba(220,205,236,.55);
+
+    opacity:0;
+    animation:
+        fadeUp 1.2s ease forwards;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================
+   MAIN BIRTHDAY TEXT
+========================= */
+
+.birthdayTitle{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(
+        48px,
+        13vw,
+        92px
+    );
+
+    font-weight:400;
+
+    line-height:1.05;
+
+    letter-spacing:.5px;
+
+    color:#f8f3ff;
+
+    text-shadow:
+        0 0 8px rgba(191,145,255,.65),
+        0 0 22px rgba(147,81,224,.55),
+        0 0 45px rgba(113,57,186,.35);
+
+    /* Writing/reveal effect */
+
+    clip-path:inset(
+        0 100% 0 0
+    );
+
+    animation:
+        writeTitle 3.2s
+        cubic-bezier(.65,0,.25,1)
+        .5s
+        forwards;
+}
+
+@keyframes writeTitle{
+
+    from{
+        clip-path:inset(
+            0 100% 0 0
+        );
+    }
+
+    to{
+        clip-path:inset(
+            0 0 0 0
+        );
+    }
+}
+
+
+/* Glow becomes stronger after writing */
+
+.birthdayTitle.glow{
+    animation:
+        gentleGlow 3.5s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+@keyframes gentleGlow{
+
+    from{
+        text-shadow:
+            0 0 8px rgba(191,145,255,.55),
+            0 0 22px rgba(147,81,224,.45),
+            0 0 40px rgba(113,57,186,.25);
+    }
+
+    to{
+        text-shadow:
+            0 0 12px rgba(220,190,255,.9),
+            0 0 28px rgba(165,105,240,.75),
+            0 0 55px rgba(118,59,190,.45);
+    }
+}
+
+
+/* Tiny heart */
+
+.littleHeart{
+
+    margin-top:25px;
+
+    font-size:22px;
+
+    color:#c79cff;
+
+    opacity:0;
+
+    transform:translateY(8px) scale(.8);
+
+    animation:
+        heartAppear 1s
+        ease
+        4s
+        forwards;
+
+    text-shadow:
+        0 0 10px rgba(177,111,243,.8),
+        0 0 24px rgba(123,61,189,.5);
+}
+
+@keyframes heartAppear{
+
+    to{
+        opacity:.9;
+        transform:translateY(0) scale(1);
+    }
+}
+
+
+/* Scroll hint */
+
+.scrollHint{
+
+    position:absolute;
+
+    bottom:28px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:rgba(220,205,236,.38);
+
+    opacity:0;
+
+    animation:
+        hintAppear 1s ease 5s forwards,
+        hintFloat 2.5s ease-in-out 6s infinite;
+}
+
+@keyframes hintAppear{
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes hintFloat{
+
+    0%,100%{
+        transform:translateX(-50%) translateY(0);
+    }
+
+    50%{
+        transform:translateX(-50%) translateY(-5px);
+    }
+}
+
+
+/* =========================
+   MOBILE TUNING
+========================= */
+
+@media(max-width:600px){
+
+    .heroContent{
+        padding:24px;
+    }
+
+    .birthdayTitle{
+        font-size:14vw;
+    }
+
+    .preTitle{
+        font-size:11px;
+        letter-spacing:3px;
+    }
+
+    .littleHeart{
+        font-size:20px;
+    }
+
+}
+
+
+/* Respect reduced motion */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+    }
+
+}
+
+/* =================================
+   PART 2 — LITTLE MESSAGE
+================================= */
+
+.messageSection{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    min-height:100svh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:70px 24px;
+
+    overflow:hidden;
+    background:#050308;
+}
+
+.messageGlow{
+    position:absolute;
+
+    width:70vw;
+    height:70vw;
+
+    max-width:500px;
+    max-height:500px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:rgba(125,70,190,.08);
+
+    filter:blur(90px);
+
+    border-radius:50%;
+
+    pointer-events:none;
+}
+
+.messageContent{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:600px;
+
+    text-align:center;
+}
+
+
+/* Small label */
+
+.messageLabel{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:12px;
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:rgba(220,205,235,.55);
+
+    margin-bottom:24px;
+
+    opacity:0;
+
+    transform:translateY(18px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+/* Main heading */
+
+.messageHeading{
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(42px,11vw,70px);
+
+    font-weight:400;
+
+    line-height:1.05;
+
+    color:#f8f2ff;
+
+    margin-bottom:32px;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    filter:blur(5px);
+
+    transition:
+        opacity 1.3s ease,
+        transform 1.3s ease,
+        filter 1.3s ease;
+
+    text-shadow:
+        0 0 10px rgba(195,150,255,.5),
+        0 0 28px rgba(130,70,195,.3);
+}
+
+
+/* Message text */
+
+.messageText{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(19px,5.2vw,25px);
+
+    line-height:1.8;
+
+    letter-spacing:.2px;
+
+    color:rgba(246,240,250,.86);
+
+    max-width:560px;
+
+    margin:auto;
+}
+
+
+/* Individual lines */
+
+.messageLine{
+    display:block;
+
+    opacity:0;
+
+    transform:translateY(18px);
+
+    filter:blur(4px);
+
+    transition:
+        opacity 1.1s ease,
+        transform 1.1s ease,
+        filter 1.1s ease;
+}
+
+
+/* Purple highlighted word */
+
+.messageHighlight{
+    color:#d0a4ff;
+
+    text-shadow:
+        0 0 8px rgba(180,110,245,.65),
+        0 0 18px rgba(130,70,190,.35);
+}
+
+
+/* Signature */
+
+.messageEnd{
+    margin-top:32px;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:30px;
+
+    color:#c99aff;
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+
+    text-shadow:
+        0 0 10px rgba(190,135,255,.6),
+        0 0 25px rgba(125,65,190,.35);
+}
+
+
+/* =================================
+   MESSAGE ANIMATION
+================================= */
+
+.messageSection.visible .messageLabel{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.messageSection.visible .messageHeading{
+    opacity:1;
+    transform:translateY(0);
+    filter:blur(0);
+}
+
+.messageSection.visible .messageLine{
+    opacity:1;
+    transform:translateY(0);
+    filter:blur(0);
+}
+
+.messageSection.visible .messageLine:nth-child(1){
+    transition-delay:.35s;
+}
+
+.messageSection.visible .messageLine:nth-child(2){
+    transition-delay:.75s;
+}
+
+.messageSection.visible .messageLine:nth-child(3){
+    transition-delay:1.15s;
+}
+
+.messageSection.visible .messageLine:nth-child(4){
+    transition-delay:1.55s;
+}
+
+.messageSection.visible .messageLine:nth-child(5){
+    transition-delay:1.95s;
+}
+
+.messageSection.visible .messageEnd{
+    opacity:1;
+    transform:translateY(0);
+    transition-delay:2.3s;
+}
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .messageSection{
+        padding:60px 22px;
+    }
+
+    .messageText{
+        line-height:1.72;
+    }
+
+  }/* =================================
+   PART 3 — 19 LANGUAGES
+================================= */
+
+.languageSection{
+    position:relative;
+
+    width:100%;
+    min-height:100vh;
+    min-height:100svh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:60px 22px;
+
+    background:#050308;
+
+    overflow:hidden;
+}
+
+.languageContent{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:600px;
+
+    text-align:center;
+}
+
+
+/* Heading */
+
+.languageLabel{
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:rgba(220,205,235,.5);
+
+    margin-bottom:12px;
+}
+
+.languageTitle{
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(42px,11vw,72px);
+
+    font-weight:400;
+
+    color:#f8f2ff;
+
+    line-height:1.1;
+
+    margin-bottom:10px;
+
+    text-shadow:
+        0 0 10px rgba(190,140,255,.55),
+        0 0 30px rgba(125,65,190,.3);
+}
+
+.languageSubtitle{
+    font-size:18px;
+
+    color:rgba(240,232,248,.65);
+
+    margin-bottom:42px;
+}
+
+
+/* Language number */
+
+.languageCounter{
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    color:rgba(190,155,220,.45);
+
+    margin-bottom:18px;
+}
+
+
+/* Sliding window */
+
+.languageWindow{
+    position:relative;
+
+    width:100%;
+
+    min-height:230px;
+
+    overflow:hidden;
+}
+
+
+/* Individual language */
+
+.languageCard{
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    top:0;
+
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    padding:10px 15px;
+
+    opacity:0;
+
+    transform:
+        translateY(70px)
+        scale(.97);
+
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.22,1,.36,1);
+}
+
+
+/* Active card */
+
+.languageCard.active{
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* Flag */
+
+.languageFlag{
+    font-size:48px;
+
+    line-height:1;
+
+    margin-bottom:14px;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(165,105,230,.3)
+        );
+}
+
+
+/* Language name */
+
+.languageName{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:16px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:#c9a5ee;
+
+    margin-bottom:18px;
+}
+
+
+/* Birthday sentence */
+
+.languageText{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(25px,6.5vw,35px);
+
+    line-height:1.35;
+
+    color:#fff;
+
+    text-shadow:
+        0 0 10px rgba(190,145,255,.5),
+        0 0 25px rgba(125,65,190,.25);
+}
+
+
+/* Cute emoji */
+
+.languageEmoji{
+    margin-top:16px;
+
+    font-size:22px;
+}
+
+
+/* Progress dots */
+
+.languageDots{
+    display:flex;
+
+    justify-content:center;
+
+    gap:6px;
+
+    margin-top:24px;
+}
+
+.languageDot{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:rgba(190,160,220,.22);
+
+    transition:
+        transform .4s ease,
+        background .4s ease,
+        box-shadow .4s ease;
+}
+
+.languageDot.active{
+    transform:scale(1.5);
+
+    background:#c79cff;
+
+    box-shadow:
+        0 0 8px rgba(180,110,245,.8);
+}
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .languageSubtitle{
+        margin-bottom:35px;
+    }
+
+    .languageWindow{
+        min-height:215px;
+    }
+
+    .languageFlag{
+        font-size:44px;
+    }
+
+    .languageText{
+        font-size:27px;
+    }
+
+                }/* =================================
+   PART 4 — BIRTHDAY MESSAGE
+================================= */
+
+.birthdayMessageSection{
+    position:relative;
+
+    width:100%;
+    min-height:100vh;
+    min-height:100svh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:70px 24px;
+
+    overflow:hidden;
+
+    background:#050308;
+}
+
+.birthdayMessageGlow{
+    position:absolute;
+
+    width:75vw;
+    height:75vw;
+
+    max-width:520px;
+    max-height:520px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:rgba(130,72,195,.08);
+
+    filter:blur(100px);
+
+    border-radius:50%;
+
+    pointer-events:none;
+}
+
+.birthdayMessageContent{
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+    max-width:620px;
+
+    text-align:center;
+}
+
+
+/* Small heading */
+
+.birthdayMessageLabel{
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:rgba(220,205,235,.5);
+
+    margin-bottom:25px;
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+/* Main glowing title */
+
+.birthdayMessageTitle{
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(
+        46px,
+        12vw,
+        78px
+    );
+
+    font-weight:400;
+
+    line-height:1.05;
+
+    color:#f9f3ff;
+
+    margin-bottom:32px;
+
+    opacity:0;
+
+    transform:translateY(22px);
+
+    filter:blur(5px);
+
+    transition:
+        opacity 1.4s ease,
+        transform 1.4s ease,
+        filter 1.4s ease;
+
+    text-shadow:
+        0 0 10px rgba(198,154,255,.55),
+        0 0 28px rgba(132,72,195,.4),
+        0 0 55px rgba(110,55,180,.2);
+}
+
+
+/* Actual message */
+
+.birthdayMessageText{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(
+        20px,
+        5.5vw,
+        27px
+    );
+
+    line-height:1.75;
+
+    color:rgba(247,241,251,.88);
+
+    max-width:560px;
+
+    margin:auto;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    filter:blur(4px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease,
+        filter 1.5s ease;
+
+    transition-delay:.6s;
+}
+
+
+/* Special words */
+
+.birthdayMessageText strong{
+    color:#d2adff;
+
+    font-weight:500;
+
+    text-shadow:
+        0 0 8px rgba(180,110,245,.6),
+        0 0 18px rgba(130,70,190,.3);
+}
+
+
+/* Final line */
+
+.birthdayMessageSignature{
+    margin-top:34px;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:31px;
+
+    color:#cda0ff;
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+    transition:
+        opacity 1.3s ease,
+        transform 1.3s ease;
+
+    transition-delay:1.5s;
+
+    text-shadow:
+        0 0 10px rgba(195,140,255,.65),
+        0 0 25px rgba(125,65,190,.35);
+}
+
+
+/* Active animation */
+
+.birthdayMessageSection.visible
+.birthdayMessageLabel{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.birthdayMessageSection.visible
+.birthdayMessageTitle{
+    opacity:1;
+
+    transform:translateY(0);
+
+    filter:blur(0);
+}
+
+.birthdayMessageSection.visible
+.birthdayMessageText{
+    opacity:1;
+
+    transform:translateY(0);
+
+    filter:blur(0);
+}
+
+.birthdayMessageSection.visible
+.birthdayMessageSignature{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .birthdayMessageSection{
+        padding:60px 22px;
+    }
+
+    .birthdayMessageText{
+        line-height:1.7;
+    }
+
+  }/* =================================
+   PART 5 — MEMORIES TIMELINE
+================================= */
+
+.memoriesSection{
+    position:relative;
+
+    width:100%;
+    min-height:100vh;
+    min-height:100svh;
+
+    padding:90px 22px 110px;
+
+    background:#050308;
+
+    overflow:hidden;
+}
+
+
+/* Soft background glow */
+
+.memoriesGlow{
+    position:absolute;
+
+    width:90vw;
+    height:90vw;
+
+    max-width:600px;
+    max-height:600px;
+
+    left:50%;
+    top:45%;
+
+    transform:translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(123,68,190,.09),
+            transparent 68%
+        );
+
+    filter:blur(50px);
+
+    pointer-events:none;
+}
+
+
+/* Main content */
+
+.memoriesContent{
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+    max-width:650px;
+
+    margin:auto;
+}
+
+
+/* Small heading */
+
+.memoriesLabel{
+    text-align:center;
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:rgba(220,205,235,.5);
+
+    margin-bottom:15px;
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+/* Main heading */
+
+.memoriesTitle{
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(
+        48px,
+        13vw,
+        78px
+    );
+
+    font-weight:400;
+
+    text-align:center;
+
+    color:#f8f1ff;
+
+    margin-bottom:70px;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    filter:blur(5px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease,
+        filter 1.2s ease;
+
+    text-shadow:
+        0 0 12px rgba(190,140,255,.6),
+        0 0 30px rgba(130,70,195,.4);
+}
+
+
+/* Timeline */
+
+.memoryTimeline{
+    position:relative;
+
+    width:100%;
+}
+
+
+/* Vertical purple line */
+
+.memoryTimeline::before{
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    top:0;
+    bottom:0;
+
+    width:1px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(174,108,239,.55) 8%,
+            rgba(174,108,239,.55) 92%,
+            transparent
+        );
+
+    box-shadow:
+        0 0 10px rgba(145,80,210,.25);
+}
+
+
+/* Individual memory */
+
+.memoryItem{
+    position:relative;
+
+    padding-left:52px;
+
+    margin-bottom:70px;
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    filter:blur(4px);
+
+    transition:
+        opacity 1.1s ease,
+        transform 1.1s ease,
+        filter 1.1s ease;
+}
+
+
+/* Timeline dot */
+
+.memoryDot{
+    position:absolute;
+
+    left:11px;
+    top:6px;
+
+    width:15px;
+    height:15px;
+
+    border-radius:50%;
+
+    background:#0a0610;
+
+    border:2px solid #bd82ff;
+
+    box-shadow:
+        0 0 8px rgba(190,125,255,.8),
+        0 0 20px rgba(130,70,190,.45);
+}
+
+
+/* Date */
+
+.memoryDate{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    color:#bd8af0;
+
+    margin-bottom:9px;
+}
+
+
+/* Memory title */
+
+.memoryTitle{
+    font-family:"Great Vibes",cursive;
+
+    font-size:34px;
+
+    font-weight:400;
+
+    color:#f8f2ff;
+
+    margin-bottom:12px;
+
+    text-shadow:
+        0 0 8px rgba(185,130,250,.45);
+}
+
+
+/* Memory description */
+
+.memoryText{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:19px;
+
+    line-height:1.7;
+
+    color:rgba(245,238,250,.78);
+
+    max-width:520px;
+}
+
+
+/* Highlighted words */
+
+.memoryText strong{
+    color:#d0a5ff;
+
+    font-weight:500;
+
+    text-shadow:
+        0 0 8px rgba(175,105,240,.5);
+}
+
+
+/* Special purple memory */
+
+.memoryItem.special .memoryDot{
+    width:18px;
+    height:18px;
+
+    left:9px;
+    top:4px;
+
+    border-color:#d19cff;
+
+    box-shadow:
+        0 0 12px rgba(203,145,255,.9),
+        0 0 30px rgba(132,70,195,.55);
+}
+
+.memoryItem.special .memoryTitle{
+    color:#d0a4ff;
+
+    text-shadow:
+        0 0 10px rgba(205,155,255,.8),
+        0 0 28px rgba(130,70,195,.45);
+}
+
+
+/* Visible animation */
+
+.memoriesSection.visible
+.memoriesLabel{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+.memoriesSection.visible
+.memoriesTitle{
+    opacity:1;
+
+    transform:translateY(0);
+
+    filter:blur(0);
+}
+
+.memoryItem.visible{
+    opacity:1;
+
+    transform:translateY(0);
+
+    filter:blur(0);
+}
+
+
+/* Stagger */
+
+.memoryItem:nth-child(1){
+    transition-delay:.15s;
+}
+
+.memoryItem:nth-child(2){
+    transition-delay:.3s;
+}
+
+.memoryItem:nth-child(3){
+    transition-delay:.45s;
+}
+
+.memoryItem:nth-child(4){
+    transition-delay:.6s;
+}
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .memoriesSection{
+        padding:
+            80px 20px
+            100px;
+    }
+
+    .memoriesTitle{
+        margin-bottom:60px;
+    }
+
+    .memoryTimeline::before{
+        left:16px;
+    }
+
+    .memoryItem{
+        padding-left:47px;
+
+        margin-bottom:62px;
+    }
+
+    .memoryDot{
+        left:9px;
+    }
+
+    .memoryTitle{
+        font-size:31px;
+    }
+
+    .memoryText{
+        font-size:18px;
+
+        line-height:1.68;
+    }
+
+  }/* =================================
+   PART 6 — MUSIC PLAYER
+================================= */
+
+.musicSection{
+    position:relative;
+
+    width:100%;
+    min-height:100vh;
+    min-height:100svh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:70px 22px;
+
+    background:#050308;
+
+    overflow:hidden;
+}
+
+.musicGlow{
+    position:absolute;
+
+    width:85vw;
+    height:85vw;
+
+    max-width:600px;
+    max-height:600px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(137,73,205,.12),
+            transparent 68%
+        );
+
+    filter:blur(55px);
+
+    pointer-events:none;
+}
+
+.musicContent{
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+    max-width:520px;
+
+    text-align:center;
+}
+
+
+/* Small label */
+
+.musicLabel{
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:rgba(220,205,235,.5);
+
+    margin-bottom:14px;
+}
+
+
+/* Heading */
+
+.musicTitle{
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(
+        48px,
+        12vw,
+        76px
+    );
+
+    font-weight:400;
+
+    color:#f8f2ff;
+
+    line-height:1.05;
+
+    margin-bottom:38px;
+
+    text-shadow:
+        0 0 12px rgba(195,145,255,.6),
+        0 0 30px rgba(130,70,195,.4);
+}
+
+
+/* =================================
+   MUSIC CARD
+================================= */
+
+.musicCard{
+    position:relative;
+
+    width:100%;
+
+    padding:32px 24px 28px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,18,43,.88),
+            rgba(10,7,15,.96)
+        );
+
+    border:1px solid
+        rgba(190,130,255,.24);
+
+    box-shadow:
+        0 0 25px
+            rgba(125,65,190,.14),
+        inset 0 0 25px
+            rgba(150,90,220,.035);
+
+    backdrop-filter:blur(8px);
+}
+
+
+/* Purple halo */
+
+.musicCard::before{
+    content:"";
+
+    position:absolute;
+
+    inset:12px;
+
+    border-radius:20px;
+
+    border:1px solid
+        rgba(180,115,245,.08);
+
+    pointer-events:none;
+}
+
+
+/* Music icon */
+
+.musicDisc{
+    position:relative;
+
+    width:100px;
+    height:100px;
+
+    margin:0 auto 22px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #d7b6ff,
+            #8750bb 38%,
+            #2b143c 72%,
+            #100817
+        );
+
+    border:1px solid
+        rgba(210,170,255,.45);
+
+    box-shadow:
+        0 0 18px
+            rgba(177,108,243,.45),
+        0 0 45px
+            rgba(126,63,190,.22);
+
+    transition:
+        transform .6s ease,
+        box-shadow .6s ease;
+}
+
+.musicDisc::after{
+    content:"♪";
+
+    font-family:serif;
+
+    font-size:42px;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px
+            rgba(220,190,255,.8);
+}
+
+
+/* Rotate when playing */
+
+.musicCard.playing .musicDisc{
+    animation:
+        discRotate 5s linear infinite;
+
+    box-shadow:
+        0 0 24px
+            rgba(195,130,255,.7),
+        0 0 55px
+            rgba(126,63,190,.35);
+}
+
+@keyframes discRotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* Song name */
+
+.songName{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:24px;
+
+    color:#f6efff;
+
+    margin-bottom:5px;
+}
+
+
+/* Song subtitle */
+
+.songArtist{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:15px;
+
+    letter-spacing:1px;
+
+    color:rgba(210,188,225,.55);
+
+    margin-bottom:26px;
+}
+
+
+/* =================================
+   FAKE WAVEFORM
+================================= */
+
+.musicWave{
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:4px;
+
+    margin-bottom:22px;
+}
+
+.waveBar{
+    width:3px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            to top,
+            #7650a5,
+            #d0a5ff
+        );
+
+    opacity:.45;
+
+    animation:
+        waveIdle 1.8s ease-in-out infinite;
+}
+
+.waveBar:nth-child(1){height:12px;}
+.waveBar:nth-child(2){height:22px;animation-delay:.08s;}
+.waveBar:nth-child(3){height:30px;animation-delay:.16s;}
+.waveBar:nth-child(4){height:17px;animation-delay:.24s;}
+.waveBar:nth-child(5){height:34px;animation-delay:.32s;}
+.waveBar:nth-child(6){height:23px;animation-delay:.40s;}
+.waveBar:nth-child(7){height:38px;animation-delay:.48s;}
+.waveBar:nth-child(8){height:19px;animation-delay:.56s;}
+.waveBar:nth-child(9){height:28px;animation-delay:.64s;}
+.waveBar:nth-child(10){height:15px;animation-delay:.72s;}
+.waveBar:nth-child(11){height:32px;animation-delay:.80s;}
+.waveBar:nth-child(12){height:21px;animation-delay:.88s;}
+.waveBar:nth-child(13){height:27px;animation-delay:.96s;}
+.waveBar:nth-child(14){height:16px;animation-delay:1.04s;}
+.waveBar:nth-child(15){height:23px;animation-delay:1.12s;}
+
+@keyframes waveIdle{
+
+    0%,100%{
+        transform:scaleY(.65);
+        opacity:.35;
+    }
+
+    50%{
+        transform:scaleY(1);
+        opacity:.75;
+    }
+
+}
+
+
+/* Stronger waveform while playing */
+
+.musicCard.playing .waveBar{
+    animation-duration:.7s;
+    opacity:.9;
+}
+
+
+/* =================================
+   PROGRESS
+================================= */
+
+.musicProgress{
+    position:relative;
+
+    width:100%;
+    height:4px;
+
+    border-radius:10px;
+
+    background:
+        rgba(185,145,220,.13);
+
+    overflow:hidden;
+
+    margin-bottom:10px;
+}
+
+.musicProgressFill{
+    width:0%;
+
+    height:100%;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c4ca8,
+            #d1a4ff
+        );
+
+    box-shadow:
+        0 0 10px
+            rgba(190,125,255,.75);
+}
+
+.musicTime{
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:11px;
+
+    color:rgba(205,185,220,.4);
+
+    letter-spacing:1px;
+
+    margin-bottom:22px;
+}
+
+
+/* =================================
+   PLAY BUTTON
+================================= */
+
+.musicPlay{
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    border:1px solid
+        rgba(210,170,255,.55);
+
+    background:
+        rgba(128,71,178,.18);
+
+    color:#f8f0ff;
+
+    font-size:21px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin:auto;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 16px
+            rgba(175,105,240,.32);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.musicPlay:active{
+    transform:scale(.92);
+}
+
+.musicPlay:hover{
+    box-shadow:
+        0 0 24px
+            rgba(190,125,255,.55);
+}
+
+
+/* Footer text */
+
+.musicNote{
+    margin-top:20px;
+
+    font-size:13px;
+
+    color:rgba(215,195,230,.38);
+
+    letter-spacing:.5px;
+}
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .musicSection{
+        padding:60px 20px;
+    }
+
+    .musicCard{
+        padding:
+            30px 20px 26px;
+    }
+
+    .musicDisc{
+        width:90px;
+        height:90px;
+    }
+
+    .songName{
+        font-size:22px;
+    }
+
+      }</style>
+</head>
+
+
+<body>
+
+<section class="hero">
+
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+
+
+    <!-- Center -->
+    <div class="heroContent">
+
+        <div class="preTitle">
+            A little corner of the internet
+        </div>
+
+        <h1 class="birthdayTitle" id="birthdayTitle">
+            Happy Birthday Saniya
+        </h1>
+
+        <div class="littleHeart">
+            ♡
+        </div>
+
+    </div>
+
+
+    <div class="scrollHint">
+        scroll slowly ↓
+    </div>
+
+</section>
+<!-- =================================
+     PART 2 — LITTLE MESSAGE
+================================= -->
+
+<section class="messageSection" id="message">
+
+    <div class="messageGlow"></div>
+
+    <div class="messageContent">
+
+        <div class="messageLabel">
+            A little message from HYUN
+        </div>
+
+        <h2 class="messageHeading">
+            For you, Saniya
+        </h2>
+
+        <p class="messageText">
+
+            <span class="messageLine">
+                Some people enter our lives
+                unexpectedly...
+            </span>
+
+            <span class="messageLine">
+                and somehow, they become
+                a little more special.
+            </span>
+
+            <span class="messageLine">
+                I'm simply glad
+                that our paths crossed.
+            </span>
+
+            <span class="messageLine">
+                I hope <span class="messageHighlight">19</span>
+                brings you countless reasons
+                to smile.
+            </span>
+
+            <span class="messageLine">
+                May this new year of your life
+                be kind to you.
+            </span>
+
+        </p>
+
+        <div class="messageEnd">
+            — HYUN ♡
+        </div>
+
+    </div>
+
+</section>
+<!-- =================================
+     PART 3 — 19 LANGUAGES
+================================= -->
+
+<section class="languageSection" id="languages">
+
+    <div class="languageContent">
+
+        <div class="languageLabel">
+            19 ways to say it
+        </div>
+
+        <h2 class="languageTitle">
+            Happy Birthday, Saniya
+        </h2>
+
+        <div class="languageSubtitle">
+            because you're 19 today ♡
+        </div>
+
+        <div class="languageCounter" id="languageCounter">
+            01 / 19
+        </div>
+
+        <div class="languageWindow" id="languageWindow">
+
+            <div class="languageCard active">
+
+                <div class="languageFlag">
+                    🇬🇧
+                </div>
+
+                <div class="languageName">
+                    English
+                </div>
+
+                <div class="languageText">
+                    Happy Birthday, Saniya!
+                </div>
+
+                <div class="languageEmoji">
+                    🎂✨
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="languageDots" id="languageDots">
+        </div>
+
+    </div>
+
+</section>
+  <!-- =================================
+     PART 4 — BIRTHDAY MESSAGE
+================================= -->
+
+<section class="birthdayMessageSection" id="birthdayMessage">
+
+    <div class="birthdayMessageGlow"></div>
+
+    <div class="birthdayMessageContent">
+
+        <div class="birthdayMessageLabel">
+            For your 19th
+        </div>
+
+        <h2 class="birthdayMessageTitle">
+            A beautiful year ahead
+        </h2>
+
+        <p class="birthdayMessageText">
+
+            I hope your <strong>19th year</strong>
+            brings you more smiles,
+            more beautiful moments,
+            and more memories
+            than you ever expected.
+
+            <br><br>
+
+            Keep being the person
+            you are,
+            and let life surprise you
+            in the most beautiful ways.
+
+        </p>
+
+        <div class="birthdayMessageSignature">
+            Happy Birthday, Saniya ♡
+        </div>
+
+    </div>
+
+</section>
+  <!-- =================================
+     PART 5 — MEMORIES
+================================= -->
+
+<section class="memoriesSection" id="memories">
+
+    <div class="memoriesGlow"></div>
+
+    <div class="memoriesContent">
+
+        <div class="memoriesLabel">
+            Little moments
+        </div>
+
+        <h2 class="memoriesTitle">
+            Our Memories
+        </h2>
+
+
+        <div class="memoryTimeline">
+
+
+            <!-- MEMORY 1 -->
+
+            <article class="memoryItem">
+
+                <div class="memoryDot"></div>
+
+                <div class="memoryDate">
+                    4 September 2025
+                </div>
+
+                <h3 class="memoryTitle">
+                    The First DM
+                </h3>
+
+                <p class="memoryText">
+
+                    We suddenly met on Instagram.
+
+                    I was showing comments from an
+                    Instagram reel called
+                    <strong>
+                        “Comment and random person will rate your DP”
+                    </strong>
+
+                    and I saw your comment.
+
+                    I gave your DP a
+                    <strong>10/10</strong>.
+
+                    And somehow, that became the reason
+                    I sent you my first DM.
+
+                </p>
+
+            </article>
+
+
+            <!-- MEMORY 2 -->
+
+            <article class="memoryItem">
+
+                <div class="memoryDot"></div>
+
+                <div class="memoryDate">
+                    6 September 2025
+                </div>
+
+                <h3 class="memoryTitle">
+                    3:00 AM
+                </h3>
+
+                <p class="memoryText">
+
+                    That night, we talked for hours.
+
+                    We shared things about ourselves,
+                    and somewhere during that conversation,
+                    I felt myself becoming attached to you
+                    for the first time.
+
+                    You slowly started becoming
+                    an <strong>important part of my life.</strong>
+
+                </p>
+
+            </article>
+
+
+            <!-- MEMORY 3 -->
+
+            <article class="memoryItem">
+
+                <div class="memoryDot"></div>
+
+                <div class="memoryDate">
+                    5 October 2025
+                </div>
+
+                <h3 class="memoryTitle">
+                    Sunflower 🌻
+                </h3>
+
+                <p class="memoryText">
+
+                    There was something about you
+                    that made me think of
+                    <strong>Hinata Hyuga</strong>.
+
+                    And sunflower became connected
+                    with that feeling.
+
+                    A little symbol that reminds me of you.
+
+                </p>
+
+            </article>
+
+
+            <!-- MEMORY 4 -->
+
+            <article class="memoryItem special">
+
+                <div class="memoryDot"></div>
+
+                <div class="memoryDate">
+                    A colour of its own
+                </div>
+
+                <h3 class="memoryTitle">
+                    Purple 💜
+                </h3>
+
+                <p class="memoryText">
+
+                    Purple represents you.
+
+                    Not because of some particular reason,
+                    but because somewhere along the way,
+                    <strong>this colour became yours.</strong>
+
+                    Whenever I see purple,
+                    it carries a little reminder of you.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+  <!-- =================================
+     PART 6 — ALLAH WAARIYAN
+================================= -->
+
+<section class="musicSection" id="music">
+
+    <div class="musicGlow"></div>
+
+    <div class="musicContent">
+
+        <div class="musicLabel">
+            A little song
+        </div>
+
+        <h2 class="musicTitle">
+            Allah Waariyan
+        </h2>
+
+
+        <div class="musicCard" id="musicCard">
+
+            <div class="musicDisc"></div>
+
+
+            <div class="songName">
+                Allah Waariyan
+            </div>
+
+            <div class="songArtist">
+                A little melody for this day ♡
+            </div>
+
+
+            <!-- Waveform -->
+
+            <div class="musicWave">
+
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+                <span class="waveBar"></span>
+
+            </div>
+
+
+            <!-- Progress -->
+
+            <div class="musicProgress">
+
+                <div
+                    class="musicProgressFill"
+                    id="musicProgressFill">
+                </div>
+
+            </div>
+
+
+            <div class="musicTime">
+
+                <span id="musicCurrent">
+                    0:00
+                </span>
+
+                <span id="musicDuration">
+                    0:30
+                </span>
+
+            </div>
+
+
+            <!-- Play button -->
+
+            <button
+                class="musicPlay"
+                id="musicPlay"
+                type="button"
+                aria-label="Play Allah Waariyan">
+
+                ▶
+
+            </button>
+
+
+            <div class="musicNote">
+                tap to play ♫
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Your local 30-second clip -->
+
+    <audio controls preload="auto">
+  <source src="./allahwaariyan-clip.mp3?v=2" type="audio/mpeg">
+  Your browser does not support audio.
+    </audio>
+
+</section>
+  
+<script>
+
+/* =========================
+   CREATE LIGHT PARTICLES
+========================= */
+
+const particleContainer =
+    document.getElementById("particles");
+
+const particleCount = 26;
+
+for(let i = 0; i < particleCount; i++){
+
+    const particle =
+        document.createElement("span");
+
+    particle.className = "particle";
+
+
+    /* Random position */
+
+    particle.style.left =
+        Math.random() * 100 + "%";
+
+    particle.style.top =
+        Math.random() * 100 + "%";
+
+
+    /* Random movement */
+
+    particle.style.setProperty(
+        "--moveX",
+        (Math.random() * 80 - 40) + "px"
+    );
+
+
+    /* Random animation speed */
+
+    particle.style.setProperty(
+        "--duration",
+        (5 + Math.random() * 6) + "s"
+    );
+
+    particle.style.setProperty(
+        "--twinkle",
+        (1.5 + Math.random() * 2) + "s"
+    );
+
+
+    /* Different particle sizes */
+
+    const size =
+        1.5 + Math.random() * 2.5;
+
+    particle.style.width =
+        size + "px";
+
+    particle.style.height =
+        size + "px";
+
+
+    /* Stagger start */
+
+    particle.style.animationDelay =
+        (-Math.random() * 8) + "s";
+
+
+    particleContainer.appendChild(particle);
+}
+
+
+/* =========================
+   START FINAL GLOW
+========================= */
+
+setTimeout(() => {
+
+    document
+        .getElementById("birthdayTitle")
+        .classList.add("glow");
+
+}, 3800);
+/* =================================
+   PART 2 — MESSAGE REVEAL
+================================= */
+
+const messageSection =
+    document.getElementById("message");
+
+const messageObserver =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    messageSection.classList.add("visible");
+
+                    messageObserver.unobserve(
+                        messageSection
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.25
+        }
+
+    );
+
+messageObserver.observe(messageSection);
+  /* =================================
+   PART 3 — 19 LANGUAGE ROTATION
+================================= */
+
+const languages = [
+
+    ["🇬🇧","English","Happy Birthday, Saniya!","🎂✨"],
+
+    ["🇮🇳","Hindi","जन्मदिन मुबारक हो, सानिया!","🎀🌸"],
+
+    ["🇵🇰","Urdu","سالگرہ مبارک ہو، ثانیہ!","💜🌙"],
+
+    ["🇧🇩","Bengali","শুভ জন্মদিন, সানিয়া!","🌸✨"],
+
+    ["🇮🇳","Punjabi","ਜਨਮਦਿਨ ਮੁਬਾਰਕ, ਸਾਨੀਆ!","🦋💜"],
+
+    ["🇮🇳","Gujarati","જન્મદિવસની શુભેચ્છાઓ, સાનિયા!","🎂🌷"],
+
+    ["🇮🇳","Marathi","वाढदिवसाच्या हार्दिक शुभेच्छा, सानिया!","🌸🎀"],
+
+    ["🇮🇳","Tamil","பிறந்தநாள் வாழ்த்துக்கள், சானியா!","🌺✨"],
+
+    ["🇮🇳","Telugu","పుట్టినరోజు శుభాకాంక్షలు, సానియా!","🎂💜"],
+
+    ["🇮🇳","Kannada","ಹುಟ್ಟುಹಬ್ಬದ ಶುಭಾಶಯಗಳು, ಸಾನಿಯಾ!","🌸🦋"],
+
+    ["🇮🇳","Malayalam","ജന്മദിനാശംസകൾ, സാനിയ!","🌷✨"],
+
+    ["🇳🇵","Nepali","जन्मदिनको शुभकामना, सानिया!","🎀💜"],
+
+    ["🇸🇦","Arabic","عيد ميلاد سعيد، سانية!","🌙✨"],
+
+    ["🇮🇷","Persian","تولدت مبارک، ثانیه!","🌸💜"],
+
+    ["🇫🇷","French","Joyeux anniversaire, Saniya !","🥐🎂"],
+
+    ["🇪🇸","Spanish","¡Feliz cumpleaños, Saniya!","🌹✨"],
+
+    ["🇩🇪","German","Alles Gute zum Geburtstag, Saniya!","🎂💜"],
+
+    ["🇯🇵","Japanese","サニヤ、お誕生日おめでとう！","🌸🎀"],
+
+    ["🇰🇷","Korean","사니야, 생일 축하해!","💜✨"]
+
+];
+
+
+const languageWindow =
+    document.getElementById("languageWindow");
+
+const languageCounter =
+    document.getElementById("languageCounter");
+
+const languageDots =
+    document.getElementById("languageDots");
+
+
+/* Create remaining 18 cards */
+
+for(let i = 1; i < languages.length; i++){
+
+    const data = languages[i];
+
+    const card =
+        document.createElement("div");
+
+    card.className = "languageCard";
+
+    card.innerHTML = `
+
+        <div class="languageFlag">
+            ${data[0]}
+        </div>
+
+        <div class="languageName">
+            ${data[1]}
+        </div>
+
+        <div class="languageText">
+            ${data[2]}
+        </div>
+
+        <div class="languageEmoji">
+            ${data[3]}
+        </div>
+
+    `;
+
+    languageWindow.appendChild(card);
+}
+
+
+/* Create progress dots */
+
+for(let i = 0; i < languages.length; i++){
+
+    const dot =
+        document.createElement("span");
+
+    dot.className = "languageDot";
+
+    if(i === 0){
+        dot.classList.add("active");
+    }
+
+    languageDots.appendChild(dot);
+}
+
+
+const languageCards =
+    document.querySelectorAll(".languageCard");
+
+const languageDotElements =
+    document.querySelectorAll(".languageDot");
+
+let currentLanguage = 0;
+
+
+/* Change language */
+
+function showLanguage(index){
+
+    languageCards[currentLanguage]
+        .classList.remove("active");
+
+    languageDotElements[currentLanguage]
+        .classList.remove("active");
+
+
+    currentLanguage = index;
+
+
+    languageCards[currentLanguage]
+        .classList.add("active");
+
+    languageDotElements[currentLanguage]
+        .classList.add("active");
+
+
+    languageCounter.textContent =
+        String(currentLanguage + 1).padStart(2,"0")
+        + " / 19";
+}
+
+
+/* Start when language section appears */
+
+const languageSection =
+    document.getElementById("languages");
+
+let languageStarted = false;
+
+const languageObserver =
+    new IntersectionObserver(
+
+        function(entries){
+
+            if(
+                entries[0].isIntersecting &&
+                !languageStarted
+            ){
+
+                languageStarted = true;
+
+                setInterval(function(){
+
+                    const next =
+                        (currentLanguage + 1)
+                        % languages.length;
+
+                    showLanguage(next);
+
+                }, 2800);
+
+            }
+
+        },
+
+        {
+            threshold:0.25
+        }
+
+    );
+
+languageObserver.observe(languageSection);
+  /* =================================
+   PART 4 — BIRTHDAY MESSAGE REVEAL
+================================= */
+
+const birthdayMessageSection =
+    document.getElementById("birthdayMessage");
+
+let birthdayMessageStarted = false;
+
+const birthdayMessageObserver =
+    new IntersectionObserver(
+
+        function(entries){
+
+            if(
+                entries[0].isIntersecting &&
+                !birthdayMessageStarted
+            ){
+
+                birthdayMessageStarted = true;
+
+                birthdayMessageSection
+                    .classList.add("visible");
+
+                birthdayMessageObserver
+                    .unobserve(
+                        birthdayMessageSection
+                    );
+            }
+
+        },
+
+        {
+            threshold:0.25
+        }
+
+    );
+
+birthdayMessageObserver.observe(
+    birthdayMessageSection
+);
+  /* =================================
+   PART 5 — MEMORIES REVEAL
+================================= */
+
+const memoriesSection =
+    document.getElementById("memories");
+
+const memoryItems =
+    document.querySelectorAll(".memoryItem");
+
+
+/* Reveal the Memories heading */
+
+const memoriesObserver =
+    new IntersectionObserver(
+
+        function(entries){
+
+            if(entries[0].isIntersecting){
+
+                memoriesSection
+                    .classList.add("visible");
+
+            }
+
+        },
+
+        {
+            threshold:0.15
+        }
+
+    );
+
+memoriesObserver.observe(
+    memoriesSection
+);
+
+
+/* Reveal each memory as it enters */
+
+const memoryObserver =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target
+                        .classList.add("visible");
+
+                    memoryObserver
+                        .unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.2
+        }
+
+    );
+
+
+memoryItems.forEach(function(item){
+
+    memoryObserver.observe(item);
+
+});
+  /* =================================
+   PART 6 — MUSIC PLAYER
+================================= */
+
+const musicAudio =
+    document.getElementById("birthdayAudio");
+
+const musicPlay =
+    document.getElementById("musicPlay");
+
+const musicCard =
+    document.getElementById("musicCard");
+
+const musicFill =
+    document.getElementById("musicProgressFill");
+
+const musicCurrent =
+    document.getElementById("musicCurrent");
+
+const musicDuration =
+    document.getElementById("musicDuration");
+
+
+/* Play / Pause */
+
+musicPlay.addEventListener("click", function(){
+
+    if(musicAudio.paused){
+
+        musicAudio.play();
+
+        musicCard.classList.add("playing");
+
+        musicPlay.textContent = "Ⅱ";
+
+    }else{
+
+        musicAudio.pause();
+
+        musicCard.classList.remove("playing");
+
+        musicPlay.textContent = "▶";
+
+    }
+
+});
+
+
+/* Update progress */
+
+musicAudio.addEventListener(
+    "timeupdate",
+    function(){
+
+        const current =
+            musicAudio.currentTime;
+
+        const duration =
+            musicAudio.duration || 30;
+
+        const percent =
+            Math.min(
+                (current / duration) * 100,
+                100
+            );
+
+        musicFill.style.width =
+            percent + "%";
+
+
+        const minutes =
+            Math.floor(current / 60);
+
+        const seconds =
+            Math.floor(current % 60)
+            .toString()
+            .padStart(2,"0");
+
+        musicCurrent.textContent =
+            minutes + ":" + seconds;
+
+    }
+);
+
+
+/* Get actual duration */
+
+musicAudio.addEventListener(
+    "loadedmetadata",
+    function(){
+
+        const duration =
+            Math.min(
+                musicAudio.duration,
+                30
+            );
+
+        if(isFinite(duration)){
+
+            const minutes =
+                Math.floor(duration / 60);
+
+            const seconds =
+                Math.floor(duration % 60)
+                .toString()
+                .padStart(2,"0");
+
+            musicDuration.textContent =
+                minutes + ":" + seconds;
+
+        }
+
+    }
+);
+
+
+/* Keep the section limited to 30 seconds */
+
+musicAudio.addEventListener(
+    "timeupdate",
+    function(){
+
+        if(musicAudio.currentTime >= 30){
+
+            musicAudio.pause();
+
+            musicAudio.currentTime = 30;
+
+            musicCard.classList.remove("playing");
+
+            musicPlay.textContent = "▶";
+
+        }
+
+    }
+);
+
+
+/* Reset when song ends */
+
+musicAudio.addEventListener(
+    "ended",
+    function(){
+
+        musicCard.classList.remove("playing");
+
+        musicPlay.textContent = "▶";
+
+        musicFill.style.width = "0%";
+
+        musicCurrent.textContent = "0:00";
+
+    }
+);
+</script>
+
+</body>
+</html>
