@@ -1999,6 +1999,529 @@ body{
         font-size:22px;
     }
 
+      }/* =================================
+   PART 7 — MY ARTS
+================================= */
+
+.artSection{
+    position:relative;
+    width:100%;
+    min-height:100svh;
+
+    padding:80px 0 100px;
+
+    background:#050308;
+    overflow:hidden;
+}
+
+.artGlow{
+    position:absolute;
+
+    width:80vw;
+    height:80vw;
+
+    max-width:560px;
+    max-height:560px;
+
+    left:50%;
+    top:42%;
+
+    transform:translate(-50%,-50%);
+
+    background:radial-gradient(
+        circle,
+        rgba(132,72,195,.10),
+        transparent 68%
+    );
+
+    filter:blur(55px);
+
+    pointer-events:none;
+}
+
+.artContent{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:900px;
+
+    margin:auto;
+}
+
+.artLabel{
+    text-align:center;
+
+    font-size:12px;
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:rgba(220,205,235,.5);
+
+    margin-bottom:14px;
+}
+
+.artTitle{
+    text-align:center;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(48px,12vw,76px);
+
+    font-weight:400;
+
+    line-height:1;
+
+    color:#f8f2ff;
+
+    text-shadow:
+        0 0 10px rgba(195,145,255,.55),
+        0 0 28px rgba(130,70,195,.3);
+
+    margin-bottom:10px;
+}
+
+.artSubtitle{
+    text-align:center;
+
+    font-size:18px;
+
+    color:rgba(240,232,248,.58);
+
+    margin-bottom:36px;
+}
+
+/* Horizontal artwork gallery */
+
+.artGallery{
+    display:flex;
+
+    gap:18px;
+
+    width:100%;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    padding:
+        10px 8vw 24px;
+
+    scroll-snap-type:x mandatory;
+
+    -webkit-overflow-scrolling:touch;
+
+    scrollbar-width:none;
+}
+
+.artGallery::-webkit-scrollbar{
+    display:none;
+}
+
+/* Individual artwork */
+
+.artCard{
+    position:relative;
+
+    flex:0 0 82vw;
+
+    max-width:430px;
+
+    aspect-ratio:4 / 5;
+
+    scroll-snap-align:center;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    background:#0b0710;
+
+    border:1px solid
+        rgba(190,130,255,.28);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5),
+        0 0 30px rgba(130,70,195,.10);
+
+    cursor:pointer;
+
+    opacity:0;
+
+    transform:translateY(22px);
+
+    animation:artIn .8s ease forwards;
+}
+
+.artCard:nth-child(2){
+    animation-delay:.12s;
+}
+
+.artCard:nth-child(3){
+    animation-delay:.24s;
+}
+
+.artCard:nth-child(4){
+    animation-delay:.36s;
+}
+
+.artCard img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+}
+
+.artCard:active img{
+    transform:scale(1.03);
+}
+
+/* Number */
+
+.artNumber{
+    position:absolute;
+
+    top:14px;
+    left:14px;
+
+    z-index:3;
+
+    padding:7px 11px;
+
+    border-radius:999px;
+
+    background:rgba(5,3,8,.65);
+
+    border:1px solid
+        rgba(210,170,255,.28);
+
+    color:#d2a8ff;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    backdrop-filter:blur(8px);
+}
+
+/* Bottom shadow */
+
+.artCard::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:35%;
+
+    background:linear-gradient(
+        to top,
+        rgba(5,3,8,.45),
+        transparent
+    );
+
+    pointer-events:none;
+}
+
+.artSwipe{
+    margin-top:4px;
+
+    text-align:center;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:#776b82;
+
+    animation:
+        artSwipeFloat
+        2.4s
+        ease-in-out
+        infinite;
+}
+
+/* Fullscreen image */
+
+.artViewer{
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(3,2,5,.95);
+}
+
+.artViewer.open{
+    display:flex;
+}
+
+.artViewer img{
+    max-width:94vw;
+    max-height:88vh;
+
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:18px;
+
+    border:1px solid
+        rgba(200,150,255,.35);
+
+    box-shadow:
+        0 0 50px
+        rgba(145,80,220,.22);
+}
+
+.artClose{
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    border:1px solid
+        rgba(210,170,255,.3);
+
+    background:rgba(10,7,15,.9);
+
+    color:white;
+
+    font-size:23px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+@keyframes artIn{
+    from{
+        opacity:0;
+        transform:translateY(22px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes artSwipeFloat{
+    0%,100%{
+        opacity:.4;
+        transform:translateX(0);
+    }
+
+    50%{
+        opacity:.8;
+        transform:translateX(5px);
+    }
+}
+
+@media(max-width:600px){
+
+    .artSection{
+        padding-top:70px;
+    }
+
+    .artGallery{
+        padding-left:9vw;
+        padding-right:9vw;
+    }
+
+    .artCard{
+        flex-basis:82vw;
+    }
+
+  }/* =================================
+   PART 8 — FINAL MESSAGE
+================================= */
+
+.finalSection{
+    position:relative;
+    width:100%;
+    min-height:100svh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:90px 24px;
+
+    background:#050308;
+
+    overflow:hidden;
+}
+
+.finalGlow{
+    position:absolute;
+
+    width:85vw;
+    height:85vw;
+
+    max-width:600px;
+    max-height:600px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:radial-gradient(
+        circle,
+        rgba(145,80,210,.11),
+        transparent 68%
+    );
+
+    filter:blur(55px);
+
+    pointer-events:none;
+}
+
+.finalContent{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:700px;
+
+    text-align:center;
+
+    opacity:0;
+    transform:translateY(24px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+.finalSection.visible .finalContent{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.finalSmall{
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:rgba(220,205,235,.5);
+
+    margin-bottom:22px;
+}
+
+.finalTitle{
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(58px,14vw,92px);
+
+    font-weight:400;
+
+    line-height:1.05;
+
+    color:#f8f2ff;
+
+    text-shadow:
+        0 0 12px rgba(190,135,255,.55),
+        0 0 34px rgba(130,70,195,.25);
+
+    margin:0 0 28px;
+}
+
+.finalDivider{
+    width:60px;
+    height:1px;
+
+    margin:0 auto 28px;
+
+    background:rgba(190,135,255,.55);
+
+    box-shadow:
+        0 0 12px rgba(165,100,230,.45);
+}
+
+.finalText{
+    max-width:560px;
+
+    margin:0 auto;
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    color:rgba(240,232,248,.68);
+}
+
+.finalText strong{
+    color:#d9b9ff;
+
+    font-weight:500;
+}
+
+.finalFrom{
+    margin-top:34px;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:34px;
+
+    color:#c99cff;
+
+    text-shadow:
+        0 0 15px rgba(165,100,230,.35);
+}
+
+.finalHeart{
+    display:block;
+
+    margin-top:28px;
+
+    font-size:22px;
+
+    color:#b878ff;
+
+    animation:finalHeart 2.4s ease-in-out infinite;
+}
+
+@keyframes finalHeart{
+
+    0%,100%{
+        opacity:.5;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.08);
+    }
+
       }</style>
 </head>
 
@@ -2447,14 +2970,166 @@ body{
 
     <!-- Your local 30-second clip -->
 
-    <audio controls preload="auto">
+    <audio id="birthdayAudio" preload="metadata">
   <source src="./allahawaariyan-clip.mp3?v=2" type="audio/mpeg">
-  Your browser does not support audio.
     </audio>
 
 </section>
-  
-<script>
+  <!-- =================================
+     PART 7 — MY ARTS
+================================= -->
+
+<section class="artSection" id="arts">
+
+    <div class="artGlow"></div>
+
+    <div class="artContent">
+
+        <div class="artLabel">
+            made for her
+        </div>
+
+        <h2 class="artTitle">
+            My Arts 🎨
+        </h2>
+
+        <div class="artSubtitle">
+            A few things I made for you.
+        </div>
+
+        <div class="artGallery">
+
+            <div class="artCard">
+                <div class="artNumber">
+                    01 / 04
+                </div>
+
+                <img
+                    src="art1.jpg"
+                    alt="Artwork 1"
+                    loading="lazy"
+                >
+            </div>
+
+
+            <div class="artCard">
+                <div class="artNumber">
+                    02 / 04
+                </div>
+
+                <img
+                    src="art2.jpg"
+                    alt="Artwork 2"
+                    loading="lazy"
+                >
+            </div>
+
+
+            <div class="artCard">
+                <div class="artNumber">
+                    03 / 04
+                </div>
+
+                <img
+                    src="art3.jpg"
+                    alt="Artwork 3"
+                    loading="lazy"
+                >
+            </div>
+
+
+            <div class="artCard">
+                <div class="artNumber">
+                    04 / 04
+                </div>
+
+                <img
+                    src="art4.jpg"
+                    alt="Artwork 4"
+                    loading="lazy"
+                >
+            </div>
+
+        </div>
+
+        <div class="artSwipe">
+            ← swipe through the four →
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Fullscreen artwork viewer -->
+
+<div class="artViewer" id="artViewer">
+
+    <button
+        class="artClose"
+        id="artClose"
+        type="button"
+        aria-label="Close artwork"
+    >
+        ×
+    </button>
+
+    <img
+        id="artViewerImage"
+        src=""
+        alt="Expanded artwork"
+    >
+
+</div>
+<!-- =================================
+     PART 8 — FINAL MESSAGE
+================================= -->
+
+<section class="finalSection" id="finalMessage">
+
+    <div class="finalGlow"></div>
+
+    <div class="finalContent">
+
+        <div class="finalSmall">
+            one last thing
+        </div>
+
+        <h2 class="finalTitle">
+            Happy Birthday, Saniya ♡
+        </h2>
+
+        <div class="finalDivider"></div>
+
+        <p class="finalText">
+            I hope this year brings you
+            <strong>peace, happiness, good health,</strong>
+            and many little moments that make you smile.
+
+            <br><br>
+
+            Some memories stay special simply
+            because they were once a part of our lives.
+            This little page is just one of mine.
+
+            <br><br>
+
+            Wherever life takes you,
+            I hope it takes you somewhere beautiful.
+        </p>
+
+        <div class="finalFrom">
+            — HYUN
+        </div>
+
+        <span class="finalHeart">
+            ♡
+        </span>
+
+    </div>
+
+</section>
+  <script>
 
 /* =========================
    CREATE LIGHT PARTICLES
@@ -3024,7 +3699,142 @@ musicAudio.addEventListener(
 
     }
 );
+  /* =================================
+   PART 7 — ARTWORK VIEWER
+================================= */
+
+const artCards =
+    document.querySelectorAll(".artCard");
+
+const artViewer =
+    document.getElementById("artViewer");
+
+const artViewerImage =
+    document.getElementById("artViewerImage");
+
+const artClose =
+    document.getElementById("artClose");
+
+
+/* Open artwork */
+
+artCards.forEach(function(card){
+
+    card.addEventListener("click", function(){
+
+        const image =
+            card.querySelector("img");
+
+        artViewerImage.src =
+            image.src;
+
+        artViewerImage.alt =
+            image.alt;
+
+        artViewer.classList.add("open");
+
+        document.body.style.overflow =
+            "hidden";
+
+    });
+
+});
+
+
+/* Close artwork */
+
+function closeArtwork(){
+
+    artViewer.classList.remove("open");
+
+    artViewerImage.src = "";
+
+    document.body.style.overflow = "";
+
+}
+
+
+artClose.addEventListener(
+    "click",
+    closeArtwork
+);
+
+
+/* Tap outside image to close */
+
+artViewer.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target === artViewer
+        ){
+
+            closeArtwork();
+
+        }
+
+    }
+);
+
+
+/* Escape key */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeArtwork();
+
+        }
+
+    }
+);
+    /* =================================
+   PART 8 — FINAL MESSAGE REVEAL
+================================= */
+
+const finalMessageSection =
+    document.getElementById("finalMessage");
+
+let finalMessageStarted = false;
+
+const finalMessageObserver =
+    new IntersectionObserver(
+
+        function(entries){
+
+            if(
+                entries[0].isIntersecting &&
+                !finalMessageStarted
+            ){
+
+                finalMessageStarted = true;
+
+                finalMessageSection
+                    .classList.add("visible");
+
+                finalMessageObserver
+                    .unobserve(
+                        finalMessageSection
+                    );
+
+            }
+
+        },
+
+        {
+            threshold:0.2
+        }
+
+    );
+
+finalMessageObserver.observe(
+    finalMessageSection
+);
 </script>
-<!-- GitHub Pages refresh -->
+
 </body>
 </html>
